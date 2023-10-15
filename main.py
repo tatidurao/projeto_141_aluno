@@ -23,9 +23,10 @@ def assign_val():
 def get_article():
     articles_data = assign_val()
     return jsonify({
-        "data": articles_data,
-        "status": "success"
+        #comando para retorna a variavel em formato de dados
+        #comando para dar sucesso na chamada
      }) 
+    
 
 # API para mover o artigo para a lista de artigos curtidos
 @app.route("/liked-article")
@@ -43,15 +44,7 @@ def liked_article():
 # API para mover o artigo para a lista de artigos não curtidos
 @app.route("/unliked-article")
 def unliked_article():
-    global all_articles
-    articles_data = assign_val()
-    not_liked_articles.append(articles_data)
-    print("i don't liked it", not_liked_articles)
-    all_articles.drop([0], inplace=True)
-    all_articles = all_articles.reset_index(drop=True)
-    return jsonify({
-        "status": "success"
-    })
+    #crie os dados para nao gostei
 
 # execute o aplicativo
 if __name__ == "__main__":
